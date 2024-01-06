@@ -1,6 +1,6 @@
 # About the app
 ### some text
 # how to install
-### some text
+### open php myadmin
 
 # database
