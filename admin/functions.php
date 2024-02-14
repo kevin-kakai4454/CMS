@@ -182,8 +182,11 @@ function login_user($username, $password)
         $_SESSION['lastname'] = $dbuser_lastname;
         $_SESSION['user_role'] = $dbuser_role;
         // $_SESSION['user_password'] = $dbuser_password;
-
-        header("Location:../admin");
+        if (is_admin($username)) {
+            header("Location:../admin");
+        } else {
+            header("Location:../index.php");
+        }
     } else {
 
         header("Location:../index.php");

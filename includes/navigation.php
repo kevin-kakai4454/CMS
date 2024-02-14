@@ -37,23 +37,38 @@
                     }
                     echo "<li class='$category_class'><a  href='category.php?category=$cat_id'>{$cat_title}</a></li>";
                 }
-
-
-                if (isset($_SESSION['user_role']) == 'Admin') {
-                    echo "<li><a href='admin'>Admin</a></li>";
+                if (isset($_SESSION['user_role'])) {
+                    $username = $_SESSION['user_name'];
+                    $query = "SELECT user_role FROM users WHERE user_name = '$username' ";
+                    $result = mysqli_query($connection, $query);
+                    if (!$result) {
+                        die("errrr" . mysqli_error($connection));
+                    }
+                    $row = mysqli_fetch_assoc($result);
+                    if ($row['user_role'] == 'Admin') {
+                        echo "<li><a href='admin'>Admin</a></li>";
+                    }
                 }
                 ?>
                 <?php
 
                 if (isset($_SESSION['user_role'])) {
-                    //echo "Hello";
-                    if (isset($_GET['p_id'])) {
-                        $the_postid = $_GET['p_id'];
-                        echo "<li><a href='admin/posts.php?source=edit_post&p_id=$the_postid'>Edit post</a></li>";
+                    $username = $_SESSION['user_name'];
+                    $query = "SELECT user_role FROM users WHERE user_name = '$username' ";
+                    $result = mysqli_query($connection, $query);
+                    if (!$result) {
+                        die("errrr" . mysqli_error($connection));
                     }
-                } //else {
-                //  echo "<li><a href='admin/posts.php?source=edit_post&p_id=$the_postid'>Edit post</a></li>";
-                //}
+                    $row = mysqli_fetch_assoc($result);
+                    if ($row['user_role'] == 'Admin') {
+
+                        //echo "Hello";
+                        if (isset($_GET['p_id'])) {
+                            $the_postid = $_GET['p_id'];
+                            echo "<li><a href='admin/posts.php?source=edit_post&p_id=$the_postid'>Edit post</a></li>";
+                        }
+                    }
+                }
                 ?>
 
                 <li class="<?php echo $registration_class ?>">
