@@ -89,7 +89,12 @@ if (isset($_POST['checkBoxArray'])) {
         <tbody>
 
             <?php
-            $query = "SELECT * FROM posts ORDER BY post_id DESC ";
+            $user = mysqli_real_escape_string($connection, $_SESSION['user_name']);
+            if ($user == "kevinKE") {
+                $query = "SELECT * FROM posts ORDER BY post_id DESC ";
+            } else {
+                $query = "SELECT * FROM posts WHERE post_author = '$user' ORDER BY post_id DESC ";
+            }
             $select_post = mysqli_query($connection, $query);
             while ($row = mysqli_fetch_assoc($select_post)) {
                 $post_id = $row['post_id'];
@@ -131,8 +136,8 @@ if (isset($_POST['checkBoxArray'])) {
                 $query = "SELECT * FROM comments WHERE comment_post_id = '$post_id' ";
                 $send_comment_query = mysqli_query($connection, $query);
 
-                $row = mysqli_fetch_assoc($send_comment_query);
-                $comment_id = $row['comment_id'];
+                //$row = mysqli_fetch_array($send_comment_query);
+                //$comment_id = $row['comment_id'];
                 $post_comment_count = mysqli_num_rows($send_comment_query);
 
                 echo "<td><a href='posts_comments.php?id=$post_id'>{$post_comment_count}</a></td>";

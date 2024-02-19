@@ -38,7 +38,7 @@
                     echo "<li class='$category_class'><a  href='category.php?category=$cat_id'>{$cat_title}</a></li>";
                 }
                 if (isset($_SESSION['user_role'])) {
-                    $username = $_SESSION['user_name'];
+                    $username = mysqli_real_escape_string($connection, $_SESSION['user_name']);
                     $query = "SELECT user_role FROM users WHERE user_name = '$username' ";
                     $result = mysqli_query($connection, $query);
                     if (!$result) {
@@ -53,7 +53,7 @@
                 <?php
 
                 if (isset($_SESSION['user_role'])) {
-                    $username = $_SESSION['user_name'];
+                    $username = mysqli_real_escape_string($connection, $_SESSION['user_name']);
                     $query = "SELECT user_role FROM users WHERE user_name = '$username' ";
                     $result = mysqli_query($connection, $query);
                     if (!$result) {

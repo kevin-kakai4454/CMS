@@ -135,7 +135,7 @@
             <li>
                 <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
             </li>
-            <li>
+            <!--<li>
                 <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
             </li>
             <li>
@@ -143,7 +143,7 @@
             </li>
             <li>
                 <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-            </li>
+            </li>-->
             <li>
                 <a href="./categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
             </li>

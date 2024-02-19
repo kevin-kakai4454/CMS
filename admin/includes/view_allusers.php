@@ -8,14 +8,19 @@
             <th>Email</th>
             <th>Image</th>
             <th>Role</th>
-            <th>Date</th>
+
 
         </tr>
     </thead>
     <tbody>
 
         <?php
-        $query = "SELECT * FROM users ";
+        $user = mysqli_real_escape_string($connection, $_SESSION['user_name']);
+        if ($user == "kevinKE") {
+            $query = "SELECT * FROM users ";
+        } else {
+            $query = "SELECT * FROM users WHERE user_name = '$user' ";
+        }
         $select_users = mysqli_query($connection, $query);
         while ($row = mysqli_fetch_assoc($select_users)) {
             $user_id = $row['user_id'];
@@ -25,7 +30,7 @@
             $user_email = $row['user_email'];
             $user_image = $row['user_image'];
             $user_role = $row['user_role'];
-            //$user_date = $row['user_date'];
+            // $user_date = $row['user_date'];
 
             echo "<tr>";
             echo "<td>{$user_id}</td>";
@@ -76,14 +81,14 @@
 
 if (isset($_GET['admin'])) {
     //echo "HELLO";
-    $the_user_id = $_GET['admin'];
+    $the_user_id = mysqli_real_escape_string($connection, $_GET['admin']);
     $query = "UPDATE users SET user_role = 'Admin' WHERE user_id =$the_user_id ";
     $admin_query = mysqli_query($connection, $query);
     header("Location:users.php");
 }
 
 if (isset($_GET['subscriber'])) {
-    $the_user_id = $_GET['subscriber'];
+    $the_user_id = mysqli_real_escape_string($connection, $_GET['subscriber']);
     $query = "UPDATE users SET user_role = 'Subscriber' WHERE user_id =$the_user_id ";
     $subscriber_query = mysqli_query($connection, $query);
     header("Location:users.php");

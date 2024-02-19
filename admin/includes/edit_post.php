@@ -79,9 +79,28 @@ if (isset($_GET['p_id'])) {
             ?>
         </select>
     </div>
-    <div class=" form-group">
+    <!--<div class=" form-group">
         <label for="post_author">Post Author</label>
         <input value="<?php echo $post_author; ?>" type="text" class="form-control" name="author">
+    </div>-->
+
+    <div class=" form-group">
+        <label for="post_author">Post Author</label><br>
+        <!--<input type="text" class="form-control" name="author">-->
+        <select name="author" id="">
+            <?php
+            $query_user = "SELECT * FROM users ";
+            $select_authors = mysqli_query($connection, $query_user);
+            if (!$select_authors) {
+                die("QUERY FAILED" . mysqli_error($connection));
+            }
+            while ($row = mysqli_fetch_assoc($select_authors)) {
+                $user_id = $row['user_id'];
+                $user_name = $row['user_name'];
+                echo "<option value='$user_name'>$user_name</option>";
+            }
+            ?>
+        </select>
     </div>
 
     <div class=" form-group">
