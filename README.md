@@ -10,9 +10,9 @@
 
 ### 3. at the create database space write the database the name for this CMS platform it is "cms"
 ### 4. then click go to creta your database 
-## click on the database to open it and it will open without tables 
+## 5. click on the database to open it and it will open without tables 
 ![kevincms3](https://github.com/CuriousEmmanuel/CMS/assets/107352649/6c4aeaf1-899d-41cf-bd8c-fbcba536e586)
-### 5. to add tables and attributes set in the program open the code in your text editor and view sql.sql file, copy the code and paste it in the sql blank page then run 
-### the sql querry will create tables for you ready to be used 
-### test it by trying to log in 
+### 6. to add tables and attributes set in the program open the code in your text editor and view sql.sql file, copy the code and paste it in the sql blank page then run 
+### 7. the sql querry will create tables for you ready to be used 
+### 8. test it by trying to log in 
 ## Another method "IMPORT THE DATABASE"
