@@ -2,20 +2,20 @@
 <?php session_start();
 ?>
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav style="background-color:cadetblue" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
+        <div style="background-color:cadetblue" class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Home</a>
+            <a style="color: blue;" class="navbar-brand" href="index.php">Home</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div style="color: blue;" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
                 <?php
@@ -35,7 +35,7 @@
                     } else if ($pagename == $registration) {
                         $registration_class = 'active';
                     }
-                    echo "<li class='$category_class'><a  href='category.php?category=$cat_id'>{$cat_title}</a></li>";
+                    echo "<li class='$category_class'><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
                 }
                 if (isset($_SESSION['user_role'])) {
                     $username = mysqli_real_escape_string($connection, $_SESSION['user_name']);
@@ -46,7 +46,7 @@
                     }
                     $row = mysqli_fetch_assoc($result);
                     if ($row['user_role'] == 'Admin') {
-                        echo "<li><a href='admin'>Admin</a></li>";
+                        echo "<li><a style='color: blue;' href='admin'>Admin</a></li>";
                     }
                 }
                 ?>
@@ -65,17 +65,17 @@
                         //echo "Hello";
                         if (isset($_GET['p_id'])) {
                             $the_postid = $_GET['p_id'];
-                            echo "<li><a href='admin/posts.php?source=edit_post&p_id=$the_postid'>Edit post</a></li>";
+                            echo "<li><a style='color: blue;' href='admin/posts.php?source=edit_post&p_id=$the_postid'>Edit post</a></li>";
                         }
                     }
                 }
                 ?>
 
                 <li class="<?php echo $registration_class ?>">
-                    <a href="./registration.php">Register</a>
+                    <a style="color: blue;" href="./registration.php">Register</a>
                 </li>
                 <li>
-                    <a href="contact.php">Contact</a>
+                    <a style="color: blue;" href="contact.php">Contact</a>
                 </li>
             </ul>
         </div>

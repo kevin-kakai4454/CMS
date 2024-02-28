@@ -142,7 +142,7 @@ function Register_user($username, $email, $password)
     $email = mysqli_real_escape_string($connection, $email);
     $password = mysqli_real_escape_string($connection, $password);
 
-    $password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12));
+    $password = password_hash($password, PASSWORD_DEFAULT, array('cost' => 12));
 
 
     $query = "INSERT INTO users (user_name, user_email, user_password, user_role)";
@@ -174,9 +174,8 @@ function login_user($username, $password)
         //$user_password = crypt ($user_password, $dbuser_password);
 
     }
-    //$verify = password_verify($user_password, $dbuser_password);
-    //if ($verify) {
-    if ($user_password == $dbuser_password) {
+    if (password_verify($password, $dbuser_password)) {
+        //if ($user_password == $dbuser_password) {
         $_SESSION['user_name'] = $dbuser_name;
         $_SESSION['firstname'] = $dbuser_firstname;
         $_SESSION['lastname'] = $dbuser_lastname;
@@ -188,7 +187,7 @@ function login_user($username, $password)
             header("Location:../index.php");
         }
     } else {
-
         header("Location:../index.php");
+        echo "wrong pasword ";
     }
 }

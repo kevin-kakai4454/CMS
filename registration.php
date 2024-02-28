@@ -47,7 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } //foreach
     if (empty($error)) {
         Register_user($username, $email, $password);
-        login_user($username, $password);
+        //login_user($username, $password);
+        include "index.php";
     }
 }
 ?>
@@ -93,3 +94,4 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
     <?php include "includes/footer.php"; ?>
+</div>

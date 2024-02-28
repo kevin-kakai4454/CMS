@@ -45,12 +45,12 @@ if (!isset($_SESSION['user_role'])) {
     <!--<link href="css/styles.css" rel="stylesheet">-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <!--<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>-->
+    <<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin">
+        </script>
 
-
-    <!--<script type="text/javascript" src="https://www.google.com/jsapi"></script>-->
-    <script src="js/jquery.js"></script>
+        <!--<script type="text/javascript" src="https://www.google.com/jsapi"></script>-->
+        <script src="js/jquery.js"></script>
 
 </head>
 
-<body>
+<body style="background-color:cadetblue">

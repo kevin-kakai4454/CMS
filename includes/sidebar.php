@@ -89,8 +89,18 @@
 
     <!-- Side Widget Well -->
     <div class="well">
-        <h4>Side Widget Well</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+        <h4>Most Read</h4>
+        <?php
+        $query = "SELECT * FROM posts WHERE post_views > 4 ";
+        $select_popular = mysqli_query($connection, $query);
+        while ($row = mysqli_fetch_assoc($select_popular)) {
+            $post_id = $row['post_id'];
+            $post_title = $row['post_title'];
+
+            echo "<h5><a href='post.php?p_id=$post_id'> $post_title </a></h5>";
+            echo "<hr style='border-color: blue;''>";
+        }
+        ?>
     </div>
 
 </div>

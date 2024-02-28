@@ -21,7 +21,7 @@ include "admin/functions.php"
 
                 <?php
                 if (isset($_GET['category'])) {
-                    $post_category_id = $_GET['category'];
+                    $post_category_id = mysqli_real_escape_string($connection, $_GET['category']);
 
                     if (is_admin($_SESSION['user_name'])) {
 
@@ -43,7 +43,7 @@ include "admin/functions.php"
                     }
                     $count_num = mysqli_stmt_num_rows($stmt);
                     if ($count_num < 1) {
-                        echo "<h1 class='text_center'>OOOPS! POSTS MISSING!!</h1>";
+                        // echo "<h1 class='text_center'>OOOPS! POSTS MISSING!!</h1>";
                     } else {
                         echo "HELLO";
                     }

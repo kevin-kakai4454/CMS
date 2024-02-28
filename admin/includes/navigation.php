@@ -12,9 +12,8 @@
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
         <li><a href="../index.php">HOME</a></li>
-        <!--<li><a href="">ACTIVE USERS: <?php echo users_online(); ?></a></li>-->
-        <li><a href="">ACTIVE USERS: <span class="usersonline"></span></a></li>
-        <li class="dropdown">
+        <li><a href="">ACTIVE USERS:<span class="usersonline"></span></a></li>
+        <!--<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown">
                 <li class="message-preview">
@@ -69,7 +68,7 @@
                     <a href="#">Read All New Messages</a>
                 </li>
             </ul>
-        </li>
+        </li>-->
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu alert-dropdown">

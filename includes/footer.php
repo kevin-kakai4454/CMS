@@ -1,8 +1,17 @@
 <!-- Footer -->
 <footer>
     <div class="row">
-        <div class="col-lg-12">
-            <p>Copyright &copy; Your Website 2014</p>
+        <div class="container footer-bottm clearfix" style="background-color:cadetblue" class="ph-footer" class="well">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2014</p>
+            </div>
+            <p>
+                <a style="color: blue;" class="col-lg-12" href="privacy.php">About us </a>//
+                <a style="color: blue;" class="col-lg-12" href="contact.php">Contact us</a>//
+                <a style="color: blue;" class="col-lg-12" href="./privacy.php">privacy Policy</a>//
+                <a style="color: blue;" class="col-lg-12" href="privacy.php">Terms of use</a>//
+                <a style="color: blue;" class="col-lg-12" href="privacy.php">Disclaimer</a>
+            </p>
         </div>
         <!-- /.col-lg-12 -->
     </div>

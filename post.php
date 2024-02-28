@@ -103,6 +103,7 @@ include "includes/header.php";
                                         $post_date = $row['post_date'];
                                         $post_image = $row['post_image'];
                                         $post_content = $row['post_content'];
+                                        $post_tags = $row['post_tags'];
                                         //}
                                 ?>
 
@@ -117,11 +118,13 @@ include "includes/header.php";
                                             <a href="#"><?php echo $post_title ?></a>
                                         </h2>
                                         <p class="lead">
-                                            by <a href="index.php"><?php echo $post_author ?></a>
+                                            by <a href="Author_post.php?author=<?php echo $post_author ?>&p_id=<?php echo $post_id ?> "><?php echo $post_author ?></a>
                                         </p>
                                         <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
                                         <hr>
-                                        <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
+                                        <a href="post.php?p_id= <?php echo $post_id ?>">
+                                            <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
+                                        </a>
                                         <hr>
                                         <p><?php echo $post_content ?></p>
 
@@ -161,6 +164,7 @@ include "includes/header.php";
                                     <!-- Comments Form -->
                                     <div class="well">
                                         <h4>Leave a Comment:</h4>
+                                        <P>Your email will not be published</P>
                                         <form role="form" action="" method="post">
                                             <div class="form-group">
                                                 <label for="comment_author">Author</label>
@@ -210,6 +214,21 @@ include "includes/header.php";
                                 } else {
                                     header("Locatio:index.php");
                                 } ?>
+                                <br>
+                                <div class="well">
+                                    <h3>YOU MAY ALSO LIKE</h3>
+                                    <?php
+                                    $query = "SELECT * FROM posts WHERE post_tags LIKE '%$post_tags%' ";
+                                    $select_popular = mysqli_query($connection, $query);
+                                    while ($row = mysqli_fetch_assoc($select_popular)) {
+                                        $post_id = $row['post_id'];
+                                        $post_title = $row['post_title'];
+
+                                        echo "<h5><a href='post.php?p_id=$post_id'> $post_title </a></h5>";
+                                        echo "<hr style='border-color: blue;''>";
+                                    }
+                                    ?>
+                                </div>
                             </div>
 
                             <!-- Comment -->
