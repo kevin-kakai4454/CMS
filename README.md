@@ -1,7 +1,7 @@
-# About the app
+# About the app.
 ### some text
-# how to install
-### 1. open php myadmin
+# how to install.
+### 1. open php myadmin.
 ![kevincms2](https://github.com/CuriousEmmanuel/CMS/assets/107352649/4a13fa33-01cb-4fc5-83ad-c5dea0041740)
 
 ### 2. click phpmyadmin and it will take you to a home page where you can view all the databases available and an option to create a new database
