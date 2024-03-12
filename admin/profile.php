@@ -20,6 +20,7 @@ if (isset($_SESSION['user_name'])) {
         $user_lastname = $row['user_lastname'];
         $user_email = $row['user_email'];
         $user_role = $row['user_role'];
+        $user_password = $row['user_password'];
     }
 }
 
@@ -38,27 +39,27 @@ if (isset($_GET['edit_user'])) {
         $user_role = $row['user_role'];
         $user_name = $row['user_name'];
         $user_email = $row['user_email'];
-        $user_password = $row['user_password'];
+        $user_password1 = $row['user_password'];
     }
 }
 
 if (isset($_POST['edit_user'])) {
 
-    $user_firstname = $_POST['user_firstname'];
-    $user_lastname = $_POST['user_lastname'];
-    $user_role = $_POST['user_role'];
+    $user_firstname = mysqli_real_escape_string($connection, $_POST['user_firstname']);
+    $user_lastname = mysqli_real_escape_string($connection, $_POST['user_lastname']);
+    $user_role = mysqli_real_escape_string($connection, $_POST['user_role']);
 
     //$user_image = $_FILES['image']['name'];
     //$user_image_temp = $_FILES['image']['tmp_name'];
-    $user_name = $_POST['user_name'];
-    $user_email = $_POST['user_email'];
-    $user_password = $_POST['user_password'];
+    $user_name = mysqli_real_escape_string($connection, $_POST['user_name']);
+    $user_email = mysqli_real_escape_string($connection, $_POST['user_email']);
+    $user_password = mysqli_real_escape_string($connection, $_POST['user_password']);
     //$post_date = date('d-m-y');
-
+    $password = password_hash($user_password, PASSWORD_DEFAULT, array('cost' => 12));
     //move_uploaded_file($user_image_temp, "../images/$user_image");
 
     $query = "UPDATE users SET ";
-    $query .= "user_firstname='$user_firstname', user_lastname='$user_lastname', user_role='$user_role', user_name='$user_name',user_email='$user_email', user_password='$user_password' ";
+    $query .= "user_firstname='$user_firstname', user_lastname='$user_lastname', user_role='$user_role', user_name='$user_name',user_email='$user_email', user_password='$password' ";
     $query .= "WHERE user_name = '$username'  ";
     $update_user_query = mysqli_query($connection, $query);
     if (!$update_user_query) {
@@ -66,21 +67,7 @@ if (isset($_POST['edit_user'])) {
     }
 }
 
-
-
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="wrapper">
 
@@ -97,7 +84,7 @@ if (isset($_POST['edit_user'])) {
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         WELCOME TO THE ADMIN PAGE
-                        <small>Author</small>
+                        <small><?php echo $user_name ?></small>
                     </h1>
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-group">
@@ -144,7 +131,7 @@ if (isset($_POST['edit_user'])) {
                             <input type="email" class="form-control" value="<?php echo $user_email ?>" name="user_email">
                         </div>
                         <div class=" form-group">
-                            <label for="create_post">User Password</label>
+                            <label for="create_password">User Password</label>
                             <input type="password" class="form-control" name="user_password" value="<?php echo $user_password ?>" id=""></input>
                         </div>
                         <div class=" form-group">

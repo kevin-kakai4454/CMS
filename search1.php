@@ -52,15 +52,15 @@ include "includes/header.php";
                             $post_author = $row['post_author'];
                             $post_date = $row['post_date'];
                             $post_image = $row['post_image'];
-                            $post_content = $row['post_content'];
+                            $post_content = substr($row['post_content'], 0, 100);
                             //}
                 ?>
 
 
-                            <h1 class="page-header">
+                            <!--<h1 class="page-header">
                                 Welcome to the Information world<br>
                                 <small>Lets update the brain Content</small>
-                            </h1>
+                            </h1>-->
 
                             <!-- First Blog Post -->
                             <h2>

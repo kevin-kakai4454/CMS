@@ -53,4 +53,4 @@ if (!isset($_SESSION['user_role'])) {
 
 </head>
 
-<body style="background-color:cadetblue">
+<body>

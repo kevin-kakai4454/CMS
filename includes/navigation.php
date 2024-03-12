@@ -15,7 +15,7 @@
             <a style="color: blue;" class="navbar-brand" href="index.php">Home</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div style="color: blue;" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
                 <?php
@@ -35,7 +35,7 @@
                     } else if ($pagename == $registration) {
                         $registration_class = 'active';
                     }
-                    echo "<li class='$category_class'><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
+                    echo "<li class='$category_class'><a style='color: blue;'  href='category.php?category=$cat_id'>{$cat_title}</a></li>";
                 }
                 if (isset($_SESSION['user_role'])) {
                     $username = mysqli_real_escape_string($connection, $_SESSION['user_name']);

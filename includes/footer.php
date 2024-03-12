@@ -10,7 +10,7 @@
                 <a style="color: blue;" class="col-lg-12" href="contact.php">Contact us</a>//
                 <a style="color: blue;" class="col-lg-12" href="./privacy.php">privacy Policy</a>//
                 <a style="color: blue;" class="col-lg-12" href="privacy.php">Terms of use</a>//
-                <a style="color: blue;" class="col-lg-12" href="privacy.php">Disclaimer</a>
+                <a style="color: blue;" class="col-lg-12" href="disclaimer.php">Disclaimer</a>
             </p>
         </div>
         <!-- /.col-lg-12 -->

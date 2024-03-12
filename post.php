@@ -229,6 +229,21 @@ include "includes/header.php";
                                     }
                                     ?>
                                 </div>
+                                <div class="well">
+                                    <h3>More From <?php echo $post_author ?></h3>
+                                    <?php
+                                    $query = "SELECT * FROM posts WHERE post_author LIKE '%$post_author%' ";
+                                    $select_popular = mysqli_query($connection, $query);
+                                    while ($row = mysqli_fetch_assoc($select_popular)) {
+                                        $post_id = $row['post_id'];
+                                        $post_title = $row['post_title'];
+
+                                        echo "<h5><a href='post.php?p_id=$post_id'> $post_title </a></h5>";
+                                        echo "<hr style='border-color: blue;''>";
+                                    }
+                                    ?>
+                                </div>
+
                             </div>
 
                             <!-- Comment -->

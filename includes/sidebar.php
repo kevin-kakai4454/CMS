@@ -19,7 +19,21 @@
         </form> <!--search form-->
         <!-- /.input-group -->
     </div>
-
+    <div class="well">
+        <h4>Subscribe to our newsletter</h4>
+        <p>We'll keep you updated with the best new business ideas.</p>
+        <form action="" method="post">
+            <div class="input-group">
+                <div class="input-group">
+                    <!--<label for="password">Enter Password</label>-->
+                    <input name="email" type="email" class="form-control" placeholder="Enter your email">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" name="login" type="submit">Login</button>
+                    </span>
+                </div>
+            </div>
+        </form> <!--subscribe form-->
+    </div>
     <!-- Blog Login form -->
 
     <div class="well">
